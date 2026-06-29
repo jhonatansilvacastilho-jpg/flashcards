@@ -1,119 +1,123 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deserto - Mitos e Verdades</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Reset */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    <header>
-        <h1>Deserto: Mitos e Verdades</h1>
-        <nav>
-            <a href="#sobre">Sobre</a>
-            <a href="#flashcards">Flashcards</a>
-        </nav>
-    </header>
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f5f5f5;
+    color:#333;
+    line-height:1.6;
+}
 
-    <main>
+/* Cabeçalho */
+header{
+    background:#d39b3d;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
 
-        <section id="sobre">
-            <h2>O que é um deserto?</h2>
+nav{
+    margin-top:10px;
+}
 
-            <img
-                src="https://images.unsplash.com/photo-1509316785289-025f5b846b35"
-                alt="Paisagem de dunas de areia em um deserto"
-            >
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
 
-            <p>
-                Os desertos são regiões com baixa quantidade de chuva durante o ano.
-                Eles podem ser quentes ou frios e abrigam diversas formas de vida adaptadas
-                às condições extremas.
-            </p>
-        </section>
+nav a:hover{
+    text-decoration:underline;
+}
 
-        <section id="flashcards">
-            <h2>Mitos e Verdades</h2>
+/* Conteúdo */
+main{
+    width:90%;
+    max-width:1100px;
+    margin:30px auto;
+}
 
-            <div class="container-cards">
+section{
+    margin-bottom:50px;
+}
 
-                <!-- Card 1 -->
-                <article class="card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <h3>Mito</h3>
-                            <p>Todo deserto é muito quente.</p>
-                        </div>
+h2{
+    margin-bottom:20px;
+    text-align:center;
+}
 
-                        <div class="card-back">
-                            <h3>Verdade</h3>
-                            <p>
-                                Existem desertos frios, como o deserto da Antártica.
-                            </p>
-                        </div>
-                    </div>
-                </article>
+img{
+    width:100%;
+    max-width:700px;
+    display:block;
+    margin:20px auto;
+    border-radius:10px;
+}
 
-                <!-- Card 2 -->
-                <article class="card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <h3>Mito</h3>
-                            <p>Não existe vida nos desertos.</p>
-                        </div>
+/* Layout com Flexbox */
+.container-cards{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
 
-                        <div class="card-back">
-                            <h3>Verdade</h3>
-                            <p>
-                                Muitos animais e plantas vivem adaptados ao clima desértico.
-                            </p>
-                        </div>
-                    </div>
-                </article>
+/* Flashcards */
+.card{
+    width:250px;
+    height:180px;
+    perspective:1000px;
+}
 
-                <!-- Card 3 -->
-                <article class="card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <h3>Mito</h3>
-                            <p>Todos os desertos são cobertos por areia.</p>
-                        </div>
+.card-inner{
+    position:relative;
+    width:100%;
+    height:100%;
+    transition:transform .8s;
+    transform-style:preserve-3d;
+}
 
-                        <div class="card-back">
-                            <h3>Verdade</h3>
-                            <p>
-                                Alguns desertos possuem rochas, gelo ou solo seco.
-                            </p>
-                        </div>
-                    </div>
-                </article>
+/* Efeito de virar */
+.card:hover .card-inner{
+    transform:rotateY(180deg);
+}
 
-                <!-- Card 4 -->
-                <article class="card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <h3>Mito</h3>
-                            <p>Os desertos não recebem chuva.</p>
-                        </div>
+.card-front,
+.card-back{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+    text-align:center;
+    backface-visibility:hidden;
+    box-shadow:0 4px 8px rgba(0,0,0,.2);
+}
 
-                        <div class="card-back">
-                            <h3>Verdade</h3>
-                            <p>
-                                Eles recebem pouca chuva, mas não são totalmente secos.
-                            </p>
-                        </div>
-                    </div>
-                </article>
+.card-front{
+    background:#d39b3d;
+    color:white;
+}
 
-            </div>
-        </section>
+.card-back{
+    background:#4CAF50;
+    color:white;
+    transform:rotateY(180deg);
+}
 
-    </main>
-
-    <footer>
-        <p>Projeto educativo sobre desertos.</p>
-    </footer>
-
-</body>
-</html>
+/* Rodapé */
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
